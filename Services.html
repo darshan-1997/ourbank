@@ -1,0 +1,154 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {width: 40%;}
+.button2 {width: 40%;}
+
+</style>
+<script>
+	function calROI(){
+				var e = document.getElementById("type");
+                var selectedItem = e.options[e.selectedIndex].value;
+
+				if(selectedItem=="home")
+					document.f1.roi.value=7
+				else if(selectedItem=="car")
+					document.f1.roi.value=9
+				else 
+					document.f1.roi.value=12
+				
+				
+		}
+		
+		function checkDur(){
+			
+				var dur = document.getElementById("dur").value;
+				var amt = document.getElementById("amt").value;
+				
+				var e = document.getElementById("type");
+                var type = e.options[e.selectedIndex].value;
+				
+				//alert(type+" "+dur)
+				var flag=false;
+				if(type=="home" && dur<25)
+					alert("Home Loan Duration should be 25 or more years")
+				else if(type=="car" && dur<7)
+					alert("Car Loan Duration should be 7 or more years")
+				else if(type=="personal" && dur<5)
+					alert("Personal Loan Duration should be 5 or more years")
+				else 
+					flag=true;
+					
+				if(flag)
+					{
+						var dur = document.getElementById("dur").value;
+						var roi = document.getElementById("roi").value;
+						var si=(dur*amt*roi)/100;
+						var total=parseInt(si)+parseInt(amt)
+						document.f1.emi.value=total/dur
+					}
+				
+			}
+			
+			function calFDROI(){
+				
+				var dur = document.getElementById("dur").value;
+
+				if(dur>=0 && dur<=2)
+					document.f2.roi.value=5
+				else if(dur>2 && dur<=5)
+					document.f2.roi.value=6
+				else if(dur>6 && dur<=10)
+					document.f2.roi.value=7
+				else
+					alert("select in range 1-10")
+					
+				var amt = document.getElementById("amt").value;	
+				var dur = document.getElementById("dur").value;
+				var roi = document.getElementById("roi").value;
+				
+				var si=(amt*dur*roi)/100
+				var total=parseInt(si)+parseInt(amt)
+				document.f2.mat.value=total
+				
+				
+				
+		}
+			
+			function display(){
+			
+				var str=`
+					<form name="f1">
+					Applicant Name: <input type="text" name="fname" ><br><br>
+					Amount        : <input type="text" name="fname" id="amt"><br><br>
+					Type          : <select name="types" id="type" onchange="calROI()">
+									  <option value="home">Home</option>
+									  <option value="car">Car</option>
+									  <option value="personal">Personal</option>
+									</select><br><br>
+					ROI: <input type="number" name="roi" id="roi" disabled><br><br>
+					Duration: <input type="number" name="dur" id="dur" onchange="checkDur()"><br><br>
+					
+					EMI(yearly) : <input type="number" name="emi" id="emi" disabled><br><br>
+		
+		
+		
+		
+					</form>
+					
+					
+				`
+				document.getElementById("d1").innerHTML = str;
+			}
+			function display1(){
+			
+				var str=`
+					<form name="f2">
+					Applicant Name: <input type="text" name="fname" ><br><br>
+					Principal Amount : <input type="text" name="fname" id="amt"><br><br>
+					
+					Duration: <input type="number" name="dur" id="dur" onchange="calFDROI()"><br><br>
+					ROI: <input type="number" name="roi" id="roi" disabled><br><br>
+					
+					
+					Maturity : <input type="number" name="mat" id="mat" disabled><br><br>
+		
+		
+		
+		
+					</form>
+					
+					
+				`
+				document.getElementById("d1").innerHTML = str;
+			}
+</script>
+
+<body>
+	<hr>
+	<h1 align="center">Services</h1>	
+	
+	<hr>
+		
+		
+		<button class="button button1" onClick="display()" id="l1">Loan Service</button>
+		<button class="button button1" onClick="display1()" id="l2">FD Service</button>
+		<br>
+		<div id="d1">
+
+</body>
+</html>

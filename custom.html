@@ -1,0 +1,101 @@
+<html>
+<head>
+	<style>
+		h1{
+		color:red;
+		text-align:center;
+		}
+		h2{
+		color:blue;
+		}
+	</style>
+	<script>
+		function display(obj){
+			document.write("<br>Name: "+obj.name);
+		document.write("<br>age: "+obj.age)
+		document.write("<br>Name: "+obj.name)
+		document.write("<br>salary: "+obj.salary)
+		document.write("<br>designation: "+obj.designation)
+		document.write("<br>");
+		}
+	</script>
+</head>
+	<body>
+		<h1>Custom objects</h1>
+		<hr>
+		<h2>using objects constructor</h2>
+		<script>
+			var emp1=new Object();
+			emp1.name="darshan";
+			emp1.age=24
+			emp1.salary=80000
+			emp1.designation="se"
+			display(emp1);
+
+			var emp2=new Object();
+			emp2.name="chethan";
+			emp2.age=24
+			emp2.salary=90000
+			emp2.designation="se"
+			display(emp2);
+			document.write(typeof(emp1))
+		</script>
+		
+		<hr>
+		<h2>using objects constructor</h2>
+		<script>
+			function Emp(name,age,salary,desig)
+			{
+				this.name=name;
+				this.age=age;
+				this.salary=salary
+				this.desig=desig
+			}
+			var e1=new Emp("darsh",24,50000,"SE")
+			var e2=new Emp("chet",24,70000,"SE")
+			console.log(e1)
+			display(e1);
+			display(e2);
+			document.write(typeof(e1))
+		</script>
+
+		<hr>
+		<h2>using json format</h2>
+		<script>
+			emp1={"name":"darshan","age":24,"salary":30000,"desig":"se"}
+			emp2={"name":"chet","age":24,"salary":50000,"desig":"se"}
+			  display(emp1)
+			display(emp2)
+			document.write(typeof(emp1))
+		</script>	
+	         <hr>
+		<h2>using class</h2>
+		
+		<script>
+			class Employee
+			{
+				constructor(name,age,salary,desig)
+				{
+					this.name=name;
+					this.age=age;
+					this.salary=salary;
+					this.desig=desig;
+				}
+				display(){
+					document.write("<br>age: "+this.age)
+					document.write("<br>Name: "+this.name)
+					document.write("<br>salary: "+this.salary)
+					document.write("<br>designation: "+this.designation)
+					document.write("<br>");
+				}
+			}
+				var e1=new Employee("darshan",24,50000,"se")
+				e1.display()
+		</script>
+</script>
+
+
+
+
+	</body>
+</html>

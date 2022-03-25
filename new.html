@@ -1,0 +1,74 @@
+<html>
+	<head></head>
+	<body>	
+	<h1>inbuilt objects</h1>
+	<hr>
+	<script>
+		var d1=new Date();
+		document.write(d1+"<br>");
+	</script>
+	<hr>
+	<h1>String objects</h1>
+	<script>
+		var str="hi";
+    		var str1=new String("hi");
+		document.write(typeof(str));
+		document.write(typeof(str1));
+		documment.write(str.length);
+	</script>
+	<hr>
+	<h1>Boolean objects</h1>
+	<script>
+		var d1=new Boolean();
+		document.write(d1+"<br>");
+		document.write(new Boolean('false')+"<br>");
+		document.write(new Boolean(11)+"<br>");
+		document.write(new Boolean(-1)+"<br>");
+
+
+		document.write(new Boolean(NaN)+"<br>");
+		document.write(new Boolean(null)+"<br>");
+		document.write(new Boolean(0)+"<br>");
+		document.write(new Boolean("")+"<br>");
+		document.write(new Boolean()+"<br>");
+		document.write(new Boolean(false)+"<br>");
+
+
+
+	</script>
+	<hr>
+	<h1>Boolean objects</h1>
+	<script>
+		var n1=11;
+		var n2=new Number(11);
+		var n3=new Number(1.1);
+		document.write(n1+" "+typeof(n1)+"<br>");
+		document.write(n2+" "+typeof(n2)+"<br>");
+		
+		document.write(n3+" "+typeof(n3)+"<br>");
+		
+</script>
+	<hr>
+	<h1>Console objects</h1>
+	<script>
+	
+		document.write("console is "+typeof(console));
+		console.log("log");
+		console.error("error");
+		console.log("log");
+		console.info("info");
+		console.warn("warn");
+		console.clear("clear");
+		console.time();
+			
+		console.timeEnd();
+		
+		
+	</script>
+
+
+
+
+
+	</body>
+</html>
